@@ -22,6 +22,7 @@ export default function TodoList() {
               checkTodo(index);
             }}
             text={todo.text}
+            completed={todo.completed}
           />
         ))}
       </ul>

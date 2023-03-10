@@ -1,15 +1,10 @@
-import styled from "styled-components";
-import PlainAnchor from "../atoms/PlainAnchor";
-import PlainList from "../atoms/PlainList";
+import Anchor from "../atoms/LineThroughAnchor";
+import List from "../atoms/PlainList";
 
 export default function TodoItem({ onClick, completed, text }) {
   return (
-    <PlainList completed={completed}>
-      <Anchor onClick={onClick} text={text} />
-    </PlainList>
+    <List>
+      <Anchor lineThrough={completed} onClick={onClick} text={text} />
+    </List>
   );
 }
-
-const Anchor = styled(PlainAnchor)`
-  text-decoration: ${({ completed }) => (completed ? "line-through" : "none")};
-`;

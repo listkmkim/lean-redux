@@ -2,7 +2,6 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { addTodo } from "../../actions";
 import TodoInputBox from "../molecules/TodoInputBox";
-import TodoList from "./TodoList";
 
 export default function AddTodo() {
   const [text, setText] = useState("");

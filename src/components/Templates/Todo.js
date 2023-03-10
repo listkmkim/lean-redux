@@ -9,7 +9,7 @@ export default function Todo() {
       <AddTodo />
       <TodoList />
       <FilterTodo />
-      {/* <FilteredTodoList /> */}
+      <FilteredTodoList />
     </div>
   );
 }

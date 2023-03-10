@@ -1,4 +1,4 @@
-export default function filter(state = { flag: "" }, action) {
+export default function filter(state = { flag: "ALL" }, action) {
   switch (action.type) {
     case "CHANGE_FILTER":
       console.log(action);

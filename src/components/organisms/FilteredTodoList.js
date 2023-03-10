@@ -4,10 +4,20 @@ import Todo from "../molecules/TodoItem";
 
 export default function FilteredTodoList() {
   const dispatch = useDispatch();
-  const { todos, filter } = useSelector((store) => ({
-    todos: store.todo.datas,
-    filter: store.filter.flag,
-  }));
+  const { todos } = useSelector(({ todo, filter }) => {
+    const flag = filter.flag;
+    if (flag === "COMPLETED") {
+      return {
+        todos: todo.datas.filter((todo) => todo.completed),
+      };
+    } else if (flag === "INCOMPLETED") {
+      return {
+        todos: todo.datas.filter((todo) => !todo.completed),
+      };
+    } else {
+      return { todos: todo.datas };
+    }
+  });
 
   const checkTodo = (index) => {
     dispatch(toggleTodo(index));
@@ -16,41 +26,16 @@ export default function FilteredTodoList() {
   return (
     <div>
       <ul>
-        {filter === "ALL" &&
-          todos.map((todo, index) => (
-            <Todo
-              key={index}
-              onClick={() => {
-                checkTodo(index);
-              }}
-              text={todo.text}
-            />
-          ))}
-
-        {filter === "COMPLETED" &&
-          todos
-            .filter((todo) => todo.completed)
-            .map((todo, index) => (
-              <Todo
-                key={index}
-                onClick={() => {
-                  checkTodo(index);
-                }}
-                text={todo.text}
-              />
-            ))}
-        {filter === "COMPLETED" &&
-          todos
-            .filter((todo) => !todo.completed)
-            .map((todo, index) => (
-              <Todo
-                key={index}
-                onClick={() => {
-                  checkTodo(index);
-                }}
-                text={todo.text}
-              />
-            ))}
+        {todos.map((todo, index) => (
+          <Todo
+            key={index}
+            onClick={() => {
+              checkTodo(index);
+            }}
+            text={todo.text}
+            completed={todo.completed}
+          />
+        ))}
       </ul>
     </div>
   );
