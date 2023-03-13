@@ -1,4 +1,9 @@
 import { configureStore } from "@reduxjs/toolkit";
-import reducer from "../reducers";
+import logger from "redux-logger";
+import rootReducer from "../modules";
 
-export default configureStore({ reducer });
+export default configureStore({
+  reducer: rootReducer,
+  devTools: true,
+  middleware: (gdm) => gdm().concat(logger),
+});

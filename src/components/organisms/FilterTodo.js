@@ -1,5 +1,6 @@
 import { useDispatch } from "react-redux";
-import { changeFilter } from "../../actions";
+import { changeFilter } from "../../reducers/filterReducer";
+
 import LabelRadio from "../atoms/LabelRadio";
 
 export default function FilterTodo() {
@@ -9,7 +10,7 @@ export default function FilterTodo() {
   };
 
   return (
-    <div>
+    <section>
       <LabelRadio
         onChange={onChange}
         name="todoFilter"
@@ -31,6 +32,6 @@ export default function FilterTodo() {
         text="미완료"
         defaultChecked={false}
       />
-    </div>
+    </section>
   );
 }

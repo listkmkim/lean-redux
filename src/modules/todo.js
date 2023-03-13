@@ -1,7 +1,8 @@
 const ADD = "todo/ADD_TODO";
 const TOGGLE = "todo/TOGGLE_TODO";
 
-export const addTodo = (text) => ({ type: ADD, text });
+let nextId = 1;
+export const addTodo = (text) => ({ type: ADD, text, id: nextId++ });
 export const toggleTodo = (index) => ({ type: TOGGLE, index });
 
 const initialState = {
@@ -10,12 +11,12 @@ const initialState = {
 
 export default function todo(state = initialState, action) {
   switch (action.type) {
-    case "ADD_TODO":
+    case ADD:
       return {
         ...state,
         datas: [...state.datas, { text: action.text, completed: false }],
       };
-    case "TOGGLE_TODO":
+    case TOGGLE:
       return {
         ...state,
         datas: state.datas.map((todo, index) =>

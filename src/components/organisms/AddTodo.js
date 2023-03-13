@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { addTodo } from "../../actions";
+import { addTodo } from "../../modules/todo";
 import TodoInputBox from "../molecules/TodoInputBox";
 
 export default function AddTodo() {
@@ -13,15 +13,16 @@ export default function AddTodo() {
 
   const onClick = (e) => {
     dispatch(addTodo(text));
+
     setText("");
   };
 
   return (
-    <div>
+    <section>
       <TodoInputBox
         textInput={{ value: text, onChange }}
         button={{ onClick, text: "저장" }}
       />
-    </div>
+    </section>
   );
 }

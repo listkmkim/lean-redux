@@ -8,7 +8,7 @@ const initialState = {
 
 export default function filter(state = initialState, action) {
   switch (action.type) {
-    case "CHANGE_FILTER":
+    case CHANGE:
       console.log(action);
       return { ...state, flag: action.flag };
     default:

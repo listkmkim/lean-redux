@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { toggleTodo } from "../../actions";
+import { toggleTodo } from "../../modules/todo";
 import Todo from "../molecules/TodoItem";
 
 export default function TodoList() {
@@ -13,7 +13,7 @@ export default function TodoList() {
   };
 
   return (
-    <div>
+    <section>
       <ul>
         {todos.map((todo, index) => (
           <Todo
@@ -26,6 +26,6 @@ export default function TodoList() {
           />
         ))}
       </ul>
-    </div>
+    </section>
   );
 }
