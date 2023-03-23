@@ -1,5 +1,5 @@
 import { useDispatch } from "react-redux";
-import { changeFilter } from "../../reducers/filterReducer";
+import { changeFilter } from "../../modules/filter";
 
 import LabelRadio from "../atoms/LabelRadio";
 

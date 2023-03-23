@@ -1,5 +1,11 @@
 import { useDispatch, useSelector } from "react-redux";
-import { decrease, increase, setDiff } from "../../modules/counter";
+import {
+  decrease,
+  decreaseAsync,
+  increase,
+  increaseAsync,
+  setDiff,
+} from "../../modules/counter";
 import CounterControlBox from "../molecules/CounterControlBox";
 
 export default function Counter() {
@@ -7,8 +13,8 @@ export default function Counter() {
   const dispatch = useDispatch();
 
   const onChange = (e) => dispatch(setDiff(parseInt(e.target.value, 10)));
-  const onIncrease = () => dispatch(increase());
-  const onDecrease = () => dispatch(decrease());
+  const onIncrease = () => dispatch(increaseAsync());
+  const onDecrease = () => dispatch(decreaseAsync());
 
   return (
     <section>

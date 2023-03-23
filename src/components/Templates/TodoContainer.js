@@ -3,7 +3,7 @@ import FilteredTodoList from "../organisms/FilteredTodoList";
 import FilterTodo from "../organisms/FilterTodo";
 import TodoList from "../organisms/TodoList";
 
-export default function Todo() {
+export default function TodoContainer() {
   return (
     <div>
       <AddTodo />

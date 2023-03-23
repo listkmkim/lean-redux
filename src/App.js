@@ -1,11 +1,18 @@
-import Counter from "./components/organisms/Counter";
-import Todo from "./components/Templates/Todo";
+import { Route, Routes } from "react-router-dom";
+import CounterContainer from "./components/Templates/CounterContainer";
+import TodoContainer from "./components/Templates/TodoContainer";
+import PostListPage from "./pages/PostListPage";
+import PostPage from "./pages/PostPage";
 
 function App() {
   return (
     <div>
-      <Counter />
-      <Todo />
+      <CounterContainer />
+      <TodoContainer />
+      <Routes>
+        <Route path="/" element={<PostListPage />} exact={true} />
+        <Route path="/:id" element={<PostPage />} />
+      </Routes>
     </div>
   );
 }
